@@ -1,0 +1,28 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://anirbansskillacademy.in/sitemap.xml
+
+# Block crawling of development files
+Disallow: /src/
+Disallow: /node_modules/
+Disallow: /*.json
+Disallow: /*.map
+
+# Block search engines from indexing admin and login pages
+Disallow: /admin/
+Disallow: /login/
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+
+# Allow all other pages
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.svg$
+Allow: /*.webp$
+
+# Crawl-delay: 10  # Uncomment and adjust if needed to limit crawl rate

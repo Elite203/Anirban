@@ -68,10 +68,10 @@ function App() {
   return (
     <>
       <Helmet>
-        <title>ANIRBAN'S SKILL ACADEMY - Digital Excellence</title>
+        <title>ANIRBAN'S SKILL ACADEMY - Professional Skill Development & Career Training Services</title>
         <meta
           name="description"
-          content="I craft exceptional digital experiences with cutting-edge technologies. Turning ideas into powerful, scalable applications."
+          content="Transform your career with ANIRBAN'S SKILL ACADEMY. Get industry-recognized certifications, expert-led training, and 100% placement assistance. Enroll in our professional courses today!"
         />
         <html className="dark" />
       </Helmet>

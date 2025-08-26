@@ -14,17 +14,27 @@ export default function BusinessTarget() {
   return (
     <div
       id="businesses"
-      className={`min-h-screen flex flex-col justify-center px-4 text-center space-y-8 md:space-y-12 bg-white dark:bg-gray-900 transition-opacity duration-1000 ${
+      className={`min-h-screen flex flex-col justify-center px-4 text-center space-y-8 md:space-y-12 bg-white dark:bg-gray-900 transition-opacity duration-1000 relative ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
     >
-      {/* Load Google Fonts */}
-      <div className="hidden">
-        <link
-          href="https://fonts.googleapis.com/css2?family=Akronim&family=Fredericka+the+Great&family=Piedra&family=Rubik+Scribble&family=Zen+Tokyo+Zoo&display=swap"
-          rel="stylesheet"
-        />
-      </div>
+      {/* Mobile Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 sm:hidden z-0"
+        style={{
+          backgroundImage: "url('/tree.png')"
+        }}
+      ></div>
+
+      {/* Content wrapper with relative positioning */}
+      <div className="relative z-10">
+        {/* Load Google Fonts */}
+        <div className="hidden">
+          <link
+            href="https://fonts.googleapis.com/css2?family=Akronim&family=Fredericka+the+Great&family=Piedra&family=Rubik+Scribble&family=Zen+Tokyo+Zoo&display=swap"
+            rel="stylesheet"
+          />
+        </div>
 
       {/* Alongwith */}
       <div className="relative inline-block">
@@ -244,23 +254,24 @@ export default function BusinessTarget() {
         </div>
       </div>
 
-      <style jsx>{`
-        @keyframes shake {
-          0%,
-          100% {
-            transform: translateX(0);
+        <style jsx>{`
+          @keyframes shake {
+            0%,
+            100% {
+              transform: translateX(0);
+            }
+            25% {
+              transform: translateX(-10px);
+            }
+            50% {
+              transform: translateX(10px);
+            }
+            75% {
+              transform: translateX(-5px);
+            }
           }
-          25% {
-            transform: translateX(-10px);
-          }
-          50% {
-            transform: translateX(10px);
-          }
-          75% {
-            transform: translateX(-5px);
-          }
-        }
-      `}</style>
+        `}</style>
+      </div>
     </div>
   );
 }

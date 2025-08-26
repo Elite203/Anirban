@@ -18,9 +18,9 @@ export default function BusinessTarget() {
         isVisible ? "opacity-100" : "opacity-0"
       }`}
     >
-      {/* Mobile Background Image */}
+      {/* Background Image */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 sm:hidden z-0"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-100 sm:opacity-100 z-0"
         style={{
           backgroundImage: "url('/tree.png')"
         }}

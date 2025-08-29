@@ -19,7 +19,7 @@ export default function SoftwareConsultationPortfolio() {
       description:
         "We help you develop a comprehensive technology roadmap aligned with your business goals and market demands.",
       icon: <Target className="w-12 h-12 text-purple-400" />,
-      image: "/portfolio/consulting/strategy.jpg",
+      image: "/strategy.jpg",
       features: [
         "Technology Assessment",
         "Digital Transformation",
@@ -33,7 +33,7 @@ export default function SoftwareConsultationPortfolio() {
       description:
         "Our experts design scalable and maintainable software architectures tailored to your specific requirements and growth plans.",
       icon: <Code className="w-12 h-12 text-blue-400" />,
-      image: "/portfolio/consulting/architecture.jpg",
+      image: "/software.jpg",
       features: [
         "System Design",
         "Cloud Architecture",
@@ -47,7 +47,7 @@ export default function SoftwareConsultationPortfolio() {
       description:
         "Enhance your development capabilities with our experienced software engineers and technical experts.",
       icon: <Users className="w-12 h-12 text-green-400" />,
-      image: "/portfolio/consulting/team.jpg",
+      image: "/team.jpg",
       features: [
         "Dedicated Developers",
         "Technical Leadership",

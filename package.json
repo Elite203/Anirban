@@ -22,6 +22,8 @@
     "framer-motion": "^10.16.4",
     "gsap": "^3.13.0",
     "howler": "^2.2.4",
+    "imagesloaded": "^5.0.0",
+    "locomotive-scroll": "^4.1.4",
     "lucide-react": "^0.292.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -30,10 +32,12 @@
     "react-router-dom": "^6.16.0",
     "react-slick": "^0.30.3",
     "slick-carousel": "^1.8.1",
+    "splitting": "^1.1.0",
     "styled-jsx": "^5.1.7",
     "tailwind-merge": "^1.1.4",
     "tailwindcss-animate": "^1.0.7",
-    "three": "^0.152.2"
+    "three": "^0.152.2",
+    "webfontloader": "^1.6.28"
   },
   "devDependencies": {
     "@types/node": "^20.8.3",

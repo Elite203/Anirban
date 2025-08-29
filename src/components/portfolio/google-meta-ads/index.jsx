@@ -18,7 +18,7 @@ export default function GoogleMetaAdsPortfolio() {
       title="Google & Meta Ads"
       description="Maximize your online presence with our expert Google and Meta advertising solutions."
       metaDescription="Professional Google Ads and Meta Ads management services. We create data-driven ad campaigns that deliver measurable results and maximize your ROI."
-      featuredImage="/portfolio/meta-add.jpeg"
+      featuredImage="/google&meta.jpg"
     >
       <div className="space-y-8">
         <div className="bg-gray-800/50 dark:bg-gray-800/50 p-6 rounded-xl">

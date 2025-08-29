@@ -16,10 +16,12 @@ const portfolioComponents = {
   "digital-marketing-seo": React.lazy(() => import("./digital-marketing-seo")),
   "photo-editing": React.lazy(() => import("./photo-editing")),
   "logo-design": React.lazy(() => import("./logo-design")),
+  "thumbnail-banner": React.lazy(() => import("./thumbnail-banner")),
   "video-editing": React.lazy(() => import("./video-editing")),
   "motion-graphics": React.lazy(() => import("./motion-graphics")),
   "business-license-registration": React.lazy(() => import("./business-license-registration")),
   "protect-your-brand": React.lazy(() => import("./protect-your-brand")),
+  "vfx-cgi-animation": React.lazy(() => import("./vfx-cgi-animation")),
   // Add other service portfolios as they are created
 };
 

@@ -271,7 +271,7 @@ export const services = [
       "Bringing your brand to life with captivating motion graphics and animations for a dynamic impact.",
   },
     {
-    slug: 'VFX, CGI, ANIMATION',
+    slug: 'vfx-cgi-animation',
     icon: <ServiceIcon><Eye className="w-8 h-8" /></ServiceIcon>,
     title: "VFX, CGI, ANIMATION",
     description: "we can create stunning animation and visual effects to create short film, portfolio, podcast for  your YouTube channel"

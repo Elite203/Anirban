@@ -8,7 +8,7 @@ export default function ProtectYourBrandPortfolio() {
       <div className="relative h-screen flex items-center">
         <div className="absolute inset-0 z-0">
           <img
-            src="/portfolio/meta-add.jpeg"
+            src="/protecturbrand.jpg"
             alt="Brand Protection"
             className="w-full h-full object-cover"
             onError={(e) => {

@@ -32,11 +32,17 @@ export default function Portfolio() {
   const handleBackToServices = (e) => {
     e.preventDefault();
     navigate("/");
-    setTimeout(() => {
-      document
-        .getElementById("services")
-        ?.scrollIntoView({ behavior: "smooth" });
-    }, 100);
+    
+    const scrollToServices = (retries = 0) => {
+      const servicesElement = document.getElementById("services");
+      if (servicesElement) {
+        servicesElement.scrollIntoView({ behavior: "smooth" });
+      } else if (retries < 10) {
+        setTimeout(() => scrollToServices(retries + 1), 200);
+      }
+    };
+    
+    setTimeout(() => scrollToServices(), 300);
   };
 
   // Get the component for the current service or a default/not found component

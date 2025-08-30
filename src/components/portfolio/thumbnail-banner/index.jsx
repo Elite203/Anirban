@@ -237,7 +237,7 @@ export default function ThumbnailBannerPortfolio() {
   // Showcase Grid Component
   const ShowcaseGrid = () => (
     <div className="mb-8">
-      <h2 className="text-xl md:text-2xl font-bold text-white mb-6 text-center">Creative Showcase</h2>
+      <h2 className="text-xl md:text-2xl font-bold text-black dark:text-white mb-6 text-center">Creative Showcase</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
         {showcaseBanners.map((imageName, index) => {
           const globalIndex = index + 8;
@@ -302,7 +302,7 @@ export default function ThumbnailBannerPortfolio() {
   // Highlight Grid (Final 4 images)
   const HighlightGrid = () => (
     <div className="mb-8">
-      <h2 className="text-2xl font-bold text-white mb-4 text-center">Featured Highlights</h2>
+      <h2 className="text-2xl font-bold text-black dark:text-white mb-4 text-center">Featured Highlights</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {highlightBanners.map((imageName, index) => {
           const globalIndex = index + 16;
@@ -355,14 +355,14 @@ export default function ThumbnailBannerPortfolio() {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 py-16 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-black dark:to-gray-900 py-16 px-4">
         <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent mb-6">
             Banner Design Portfolio
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Discover stunning banner designs that capture attention and drive engagement. 
             Each piece showcases creative excellence with modern aesthetics and professional quality.
           </p>
@@ -381,19 +381,19 @@ export default function ThumbnailBannerPortfolio() {
         <Lightbox />
 
         {/* Stats Section */}
-        <div className="bg-gray-800/50 rounded-2xl p-8 mt-16">
+        <div className="bg-gray-100/80 dark:bg-gray-800/50 rounded-2xl p-8 mt-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div>
               <div className="text-4xl font-bold text-orange-400 mb-2">20+</div>
-              <div className="text-gray-300">Banner Designs</div>
+              <div className="text-gray-700 dark:text-gray-300">Banner Designs</div>
             </div>
             <div>
               <div className="text-4xl font-bold text-orange-400 mb-2">100%</div>
-              <div className="text-gray-300">Creative Quality</div>
+              <div className="text-gray-700 dark:text-gray-300">Creative Quality</div>
             </div>
             <div>
               <div className="text-4xl font-bold text-orange-400 mb-2">24/7</div>
-              <div className="text-gray-300">Professional Support</div>
+              <div className="text-gray-700 dark:text-gray-300">Professional Support</div>
             </div>
           </div>
         </div>

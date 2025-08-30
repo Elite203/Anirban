@@ -374,10 +374,8 @@ const PerspectiveTiles: React.FC = () => {
         .content-text {
           font-size: clamp(1.2rem, 3vw, 2rem);
           line-height: 1.6;
-          color: rgba(255,255,255,0.9);
           font-weight: 300;
           letter-spacing: 0.01em;
-          text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
         .brand-accent {
@@ -576,7 +574,7 @@ const PerspectiveTiles: React.FC = () => {
       </section> */}
     
        <section className="content-section">
-        <p className="content-text">
+        <p className="content-text text-gray-900 dark:text-white">
           At <span className="brand-accent">Anirban's Skill Academy</span>, we combine cutting-edge technology with creative expertise 
           to deliver exceptional <span className="brand-accent">VFX, CGI, and animation</span> services. Our team transforms ideas into 
           stunning visual experiences that captivate audiences and elevate your brand.

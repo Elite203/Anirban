@@ -17,8 +17,8 @@ export default function GoogleMetaAdsPortfolio() {
       {/* Header Section */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 md:pt-20 pb-8">
         <div className="text-center mb-8">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">Google & Meta Ads</h1>
-          <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+          <h1 className="text-4xl md:text-6xl font-bold mb-4 text-black dark:text-white">Google & Meta Ads</h1>
+          <p className="text-xl text-gray-800 dark:text-gray-200 max-w-3xl mx-auto">
             Maximize your online presence with our expert Google and Meta advertising solutions.
           </p>
         </div>

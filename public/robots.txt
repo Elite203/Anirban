@@ -1,21 +1,39 @@
 User-agent: *
 Allow: /
 
+# Primary sitemap
 Sitemap: https://anirbansskillacademy.in/sitemap.xml
 
-# Block crawling of development files
+# Block crawling of development and system files
 Disallow: /src/
 Disallow: /node_modules/
-Disallow: /*.json
-Disallow: /*.map
+Disallow: /dist/assets/
+Disallow: /*.json$
+Disallow: /*.map$
+Disallow: /*.config.js$
+Disallow: /tools/
+Disallow: /.vscode/
+Disallow: /.git/
+Disallow: /error.log
+Disallow: /server.log
 
-# Block search engines from indexing admin and login pages
+# Block search engines from indexing admin, login, and private pages
 Disallow: /admin/
 Disallow: /login/
 Disallow: /wp-admin/
 Disallow: /wp-login.php
+Disallow: /private/
+Disallow: /temp/
+Disallow: /tmp/
 
-# Allow all other pages
+# Block common bot traps and sensitive files
+Disallow: /cgi-bin/
+Disallow: /*.php$
+Disallow: /*?*utm_*
+Disallow: /*?*sessionid*
+Disallow: /*?*sid*
+
+# Allow important assets and files
 Allow: /*.css$
 Allow: /*.js$
 Allow: /*.png$
@@ -24,5 +42,42 @@ Allow: /*.jpeg$
 Allow: /*.gif$
 Allow: /*.svg$
 Allow: /*.webp$
+Allow: /*.ico$
+Allow: /*.mp4$
+Allow: /*.webm$
+Allow: /*.pdf$
+Allow: /logo*
+Allow: /favicon*
+Allow: /manifest.json$
 
-# Crawl-delay: 10  # Uncomment and adjust if needed to limit crawl rate
+# Specific bot rules
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Block unwanted bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Crawl delay for polite crawling (adjust if needed)
+# Crawl-delay: 1

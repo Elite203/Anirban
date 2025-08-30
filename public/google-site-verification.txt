@@ -1,0 +1,22 @@
+GOOGLE_SEARCH_CONSOLE_VERIFICATION_NOTE:
+
+To verify your site with Google Search Console:
+
+1. Go to https://search.google.com/search-console
+2. Add your property (https://anirbansskillacademy.in)
+3. Choose "HTML file upload" verification method
+4. Download the verification file from Google Search Console
+5. Replace this file with the downloaded verification file
+6. Upload the file to your site's root directory
+7. Click "Verify" in Google Search Console
+
+Alternative verification methods:
+- HTML tag (add to <head> section)
+- DNS record (add to domain DNS settings)
+- Google Analytics (if already installed)
+- Google Tag Manager (if already installed)
+
+The verification file name will be something like:
+google1234567890abcdef.html
+
+Current file is a placeholder - replace with actual verification file from Google.

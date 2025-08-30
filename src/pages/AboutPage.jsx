@@ -1,6 +1,6 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
+import SEOHead from '@/components/SEOHead';
 
 const aboutContent = [
   {
@@ -52,10 +52,7 @@ const aboutContent = [
 const AboutPage = () => {
   return (
     <>
-      <Helmet>
-        <title>About Us - ANIRBAN'S SKILL ACADEMY</title>
-        <meta name="description" content="Learn more about ANIRBAN'S SKILL ACADEMY, our mission, our story, and the values that drive us." />
-      </Helmet>
+      <SEOHead pageKey="about" />
       <div className="relative py-32 overflow-visible">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header Section with Larger Image */}

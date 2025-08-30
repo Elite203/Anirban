@@ -1,19 +1,11 @@
 import React from "react";
-import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
+import SEOHead from "@/components/SEOHead";
 
 const TermsPage = () => {
   return (
     <>
-      <Helmet>
-        <title>Terms & Conditions - ANIRBAN'S SKILL ACADEMY</title>
-        <meta
-          name="description"
-          content="Learn more about ANIRBAN'S SKILL ACADEMY, our mission, our story, and the values that drive us."
-        />
-        {/* Canonical URL added here */}
-        <link rel="canonical" href="https://anirbansskillacademy.in/terms" />
-      </Helmet>
+      <SEOHead pageKey="terms" />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

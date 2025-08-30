@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<users>
+  <user>PLACEHOLDER_FOR_BING_WEBMASTER_VERIFICATION</user>
+</users>
+
+<!-- 
+BING WEBMASTER TOOLS VERIFICATION INSTRUCTIONS:
+
+1. Go to https://www.bing.com/webmasters
+2. Sign in and add your site
+3. Choose XML file verification method
+4. Download the BingSiteAuth.xml file
+5. Replace this file with the downloaded verification file
+6. Upload to your site's root directory
+7. Click verify in Bing Webmaster Tools
+
+This is a placeholder file - replace with actual verification file from Bing.
+-->

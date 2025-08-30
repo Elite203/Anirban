@@ -1,0 +1,31 @@
+SOCIAL MEDIA PREVIEW IMAGE REQUIREMENTS
+=====================================
+
+Please create a social media preview image with the following specifications:
+
+DIMENSIONS: 1200x630 pixels (Facebook/Twitter recommended size)
+FORMAT: JPG or PNG
+FILENAME: social-preview.jpg
+
+CONTENT REQUIREMENTS:
+- Company logo: ANIRBAN'S SKILL ACADEMY (use existing logo.png)
+- Background: Professional gradient or solid color (#2563EB theme color)
+- Main text: "ANIRBAN'S SKILL ACADEMY"
+- Subtitle: "Professional Skill Development & Career Training"
+- Tagline: "Transform Your Career with Expert Training"
+- Call-to-action: "100% Placement Assistance"
+
+DESIGN GUIDELINES:
+- Ensure text is readable on mobile devices
+- Use high contrast for accessibility
+- Keep important text away from edges (safe zone)
+- Match existing brand colors and fonts
+- Professional, clean design aesthetic
+
+TOOLS YOU CAN USE:
+- Canva (recommended for quick creation)
+- Figma (for professional design)
+- Photoshop/GIMP
+- Any online social media image generator
+
+Once created, replace this file with the actual social-preview.jpg image.

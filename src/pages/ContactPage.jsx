@@ -1,6 +1,6 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
+import SEOHead from '@/components/SEOHead';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { toast } from '@/components/ui/use-toast';
@@ -20,11 +20,10 @@ const ContactPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Contact Us - ANIRBAN'S SKILL ACADEMY</title>
-        <meta name="description" content="Get in touch with ANIRBAN'S SKILL ACADEMY. We're here to help you with your next project." />
-        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.35/build/spline-viewer.js"></script>
-      </Helmet>
+      <SEOHead 
+        pageKey="contact"
+        customDescription="Get in touch with ANIRBAN'S SKILL ACADEMY for professional training, digital services, and career development opportunities. We're here to help transform your future."
+      />
 
       <div className="relative min-h-screen">
         {/* Spline Background */}

@@ -7,6 +7,9 @@ import usePreventDevTools from "@/hooks/usePreventDevTools";
 import useSmoothScroll from "@/hooks/useSmoothScroll";
 import useDisableCopy from "@/hooks/useDisableCopy";
 import RippleEffect from "@/components/ui_extended/RippleEffect";
+import PerformanceOptimizer from "@/components/PerformanceOptimizer";
+import AccessibilityEnhancer from "@/components/AccessibilityEnhancer";
+import SEOAnalytics from "@/components/SEOAnalytics";
 
 const HomePage = React.lazy(() => import("@/pages/HomePage"));
 const AboutPage = React.lazy(() => import("@/pages/AboutPage"));
@@ -72,6 +75,12 @@ function App() {
         />
         <html className="dark" />
       </Helmet>
+      
+      {/* Performance, Accessibility, and Analytics Enhancements */}
+      <PerformanceOptimizer />
+      <AccessibilityEnhancer />
+      <SEOAnalytics />
+      
       {/* Ripple effect */}
       <RippleEffect />
       {/* Always render main content for LCP */}

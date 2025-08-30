@@ -6,7 +6,7 @@ import Skills from "@/components/sections/Skills";
 import BeeScene from "../components/BeeSchene";
 import BusinessTarget from "../components/sections/BusinessTarget";
 import Merquery from "../components/sections/Merquery";
-import { Helmet } from "react-helmet";
+import SEOHead from "@/components/SEOHead";
 const Services = React.lazy(() => import("@/components/sections/Services"));
 const Team = React.lazy(() => import("@/components/sections/Team"));
 const Process = React.lazy(() => import("@/components/sections/Process"));
@@ -31,18 +31,11 @@ const LoadingFallback = () => (
 const HomePage = () => {
   return (
     <>
-      <Helmet>
-        <title>
-          ANIRBAN'S SKILL ACADEMY | A Digital Service Providing company
-          in India
-        </title>
-        <meta
-          name="description"
-          content="Transform your career with Anirbans Skill Academy. Get industry-recognized certifications, expert-led training, and 100% placement assistance. Explore our professional courses today!"
-        />
-        <link rel="canonical" href="https://anirbansskillacademy.in/" />
-        {/* Add specific Open Graph tags for the homepage here if they differ from global */}
-      </Helmet>
+      <SEOHead 
+        pageKey="home"
+        customTitle="ANIRBAN'S SKILL ACADEMY | A Digital Service Providing Company in India"
+        customDescription="Transform your career with Anirbans Skill Academy. Get industry-recognized certifications, expert-led training, and 100% placement assistance. Explore our professional courses today!"
+      />
 
       <main className="relative z-10">
         <BeeScene />

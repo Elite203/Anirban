@@ -91,13 +91,16 @@ const sectionPositions = [
 
 const BeeController = ({ modelRef }) => {
   useEffect(() => {
-    // console.log("BeeController initialized, modelRef:", modelRef?.current);
+    let retryCount = 0;
+    const maxRetries = 50; // Maximum retry attempts
 
     // Wait for both modelRef and DOM to be ready
     const initializeBeeController = () => {
       if (!modelRef?.current) {
-        console.warn("ModelRef not available yet, retrying...");
-        setTimeout(initializeBeeController, 100);
+        retryCount++;
+        if (retryCount < maxRetries) {
+          setTimeout(initializeBeeController, 100);
+        }
         return;
       }
 
@@ -108,8 +111,10 @@ const BeeController = ({ modelRef }) => {
       );
 
       if (validSections.length === 0) {
-        console.warn("No valid sections found, retrying...");
-        setTimeout(initializeBeeController, 200);
+        retryCount++;
+        if (retryCount < maxRetries) {
+          setTimeout(initializeBeeController, 200);
+        }
         return;
       }
 

@@ -61,6 +61,7 @@ export default function ThumbnailBannerPortfolio() {
             }`}
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(-1)}
+            onClick={() => openLightbox(index)}
           >
             <img
               src={`/portfolio/Banner/${imageName}`}
@@ -316,6 +317,7 @@ export default function ThumbnailBannerPortfolio() {
               }`}
               onMouseEnter={() => setHoveredIndex(globalIndex)}
               onMouseLeave={() => setHoveredIndex(-1)}
+              onClick={() => openLightbox(globalIndex)}
             >
               <img
                 src={`/portfolio/Banner/${imageName}`}

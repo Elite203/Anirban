@@ -8,19 +8,55 @@ import {
   FaRegMoneyBillAlt,
 } from "react-icons/fa";
 import { FiTarget } from "react-icons/fi";
-import BlogLayout from "../shared/BlogLayout";
 import { useNavigate } from "react-router-dom";
 
 export default function GoogleMetaAdsPortfolio() {
   const navigate = useNavigate();
   return (
-    <BlogLayout
-      title="Google & Meta Ads"
-      description="Maximize your online presence with our expert Google and Meta advertising solutions."
-      metaDescription="Professional Google Ads and Meta Ads management services. We create data-driven ad campaigns that deliver measurable results and maximize your ROI."
-      featuredImage="/google&meta.jpg"
-    >
-      <div className="space-y-8">
+    <div className="min-h-screen text-white">
+      {/* Header Section */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 md:pt-20 pb-8">
+        <div className="text-center mb-8">
+          <h1 className="text-4xl md:text-6xl font-bold mb-4">Google & Meta Ads</h1>
+          <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+            Maximize your online presence with our expert Google and Meta advertising solutions.
+          </p>
+        </div>
+      </div>
+
+      {/* Featured Image */}
+      <div className="relative w-full h-96 md:h-[500px] overflow-hidden mb-12">
+        <img
+          src="/google&meta.jpg"
+          alt="Google & Meta Ads"
+          className="w-full h-full object-cover"
+          onError={(e) => {
+            e.target.style.display = "none";
+            e.target.nextElementSibling.style.display = "flex";
+          }}
+        />
+        <div className="hidden absolute inset-0 bg-gradient-to-br from-blue-900 to-purple-900 items-center justify-center">
+          <div className="text-center p-6">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4">Google & Meta Ads</h1>
+            <p className="text-xl text-gray-300">Professional Google Ads and Meta Ads management services. We create data-driven ad campaigns that deliver measurable results and maximize your ROI.</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Content Section */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 md:pb-20">
+        <div className="prose prose-invert max-w-none">
+          <div className="flex items-center text-gray-400 text-sm mb-8">
+            <span>Published on {new Date().toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}</span>
+            <span className="mx-2">•</span>
+            <span>5 min read</span>
+          </div>
+
+          <div className="space-y-8">
         <div className="bg-gray-800/50 dark:bg-gray-800/50 p-6 rounded-xl">
           <h2 className="text-3xl font-bold mb-6">Our Advertising Services</h2>
 
@@ -143,7 +179,9 @@ export default function GoogleMetaAdsPortfolio() {
             </button>
           </div>
         </div>
+          </div>
+        </div>
       </div>
-    </BlogLayout>
+    </div>
   );
 }

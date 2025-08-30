@@ -14,10 +14,7 @@ const TermsPage = React.lazy(() => import("@/pages/TermsPage"));
 const PrivacyPage = React.lazy(() => import("@/pages/PrivacyPage"));
 const RefundPage = React.lazy(() => import("@/pages/RefundPage"));
 const ShippingPage = React.lazy(() => import("@/pages/ShippingPage"));
-const ContactPage = React.lazy(() => {
-  console.log("Loading ContactPage...");
-  return import("@/pages/ContactPage");
-});
+const ContactPage = React.lazy(() => import("@/pages/ContactPage"));
 // const ServicePage = React.lazy(() => import("@/pages/ServicePage"));
 const Portfolio = React.lazy(() => import("@/components/portfolio"));
 const NotFound = React.lazy(() => import("@/pages/NotFound"));

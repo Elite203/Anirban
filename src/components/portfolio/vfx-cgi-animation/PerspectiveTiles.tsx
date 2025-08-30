@@ -7,15 +7,20 @@ gsap.registerPlugin(ScrollTrigger);
 interface TileData {
   id: string;
   images: string[];
-  videos?: string[];
+  videos: string[];
   title: string;
   speed: number;
-  useVideos?: boolean;
+  mediaType: 'images' | 'videos' | 'mixed';
 }
 
 const PerspectiveTiles: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  
+  // Lightbox functionality
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+  const [lightboxGroupIndex, setLightboxGroupIndex] = useState(0);
 
   // Create arrays of 24 images by repeating the base 12 images
   const baseImages = [
@@ -54,9 +59,10 @@ const PerspectiveTiles: React.FC = () => {
     {
       id: 'group-1',
       images: createImageSet(8),
+      videos: createVideoSet(8),
       title: 'Creative Design',
       speed: 0.8,
-      useVideos: false
+      mediaType: 'images'
     },
     {
       id: 'group-2',
@@ -64,14 +70,15 @@ const PerspectiveTiles: React.FC = () => {
       videos: createVideoSet(8),
       title: 'Digital Innovation',
       speed: 1.2,
-      useVideos: true
+      mediaType: 'videos'
     },
     {
       id: 'group-3',
       images: createImageSet(8),
+      videos: createVideoSet(8),
       title: 'Visual Storytelling',
       speed: 0.6,
-      useVideos: false
+      mediaType: 'images'
     },
     {
       id: 'group-4',
@@ -79,9 +86,60 @@ const PerspectiveTiles: React.FC = () => {
       videos: createVideoSet(8),
       title: 'Skill Development',
       speed: -0.9,
-      useVideos: true
+      mediaType: 'videos'
     }
   ];
+
+  // Lightbox functions
+  const openLightbox = (groupIndex: number, itemIndex: number) => {
+    setLightboxGroupIndex(groupIndex);
+    setLightboxIndex(itemIndex);
+    setLightboxOpen(true);
+  };
+  
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+  };
+  
+  const nextItem = () => {
+    const currentGroup = tileGroups[lightboxGroupIndex];
+    const totalItems = currentGroup.mediaType === 'videos' 
+      ? currentGroup.videos.length 
+      : currentGroup.images.length;
+    
+    if (lightboxIndex < totalItems - 1) {
+      setLightboxIndex(lightboxIndex + 1);
+    } else if (lightboxGroupIndex < tileGroups.length - 1) {
+      setLightboxGroupIndex(lightboxGroupIndex + 1);
+      setLightboxIndex(0);
+    }
+  };
+  
+  const prevItem = () => {
+    if (lightboxIndex > 0) {
+      setLightboxIndex(lightboxIndex - 1);
+    } else if (lightboxGroupIndex > 0) {
+      setLightboxGroupIndex(lightboxGroupIndex - 1);
+      const prevGroup = tileGroups[lightboxGroupIndex - 1];
+      const prevTotalItems = prevGroup.mediaType === 'videos' 
+        ? prevGroup.videos.length 
+        : prevGroup.images.length;
+      setLightboxIndex(prevTotalItems - 1);
+    }
+  };
+
+  // Handle body scroll lock when lightbox is open
+  useEffect(() => {
+    if (lightboxOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [lightboxOpen]);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -434,14 +492,15 @@ const PerspectiveTiles: React.FC = () => {
       {tileGroups.map((group, groupIndex) => (
         <section key={group.id} className="tile-group">
           <div className="tiles-grid">
-            {group.useVideos && group.videos ? (
+            {group.mediaType === 'videos' ? (
               group.videos.map((video, index) => (
                 <div
                   key={index}
-                  className="perspective-tile video-tile"
+                  className="perspective-tile video-tile cursor-pointer"
                   style={{
                     animationDelay: `${index * 0.02}s`
                   }}
+                  onClick={() => openLightbox(groupIndex, index)}
                 >
                   <video
                     autoPlay
@@ -450,8 +509,7 @@ const PerspectiveTiles: React.FC = () => {
                     playsInline
                     preload="metadata"
                     onError={(e) => {
-                      console.warn(`Failed to load video: ${video}`);
-                      // Fallback to image background
+                      // Fallback to image background if video fails to load
                       const target = e.target as HTMLVideoElement;
                       const container = target.parentElement;
                       if (container) {
@@ -466,15 +524,29 @@ const PerspectiveTiles: React.FC = () => {
                   </video>
                 </div>
               ))
-            ) : (
+            ) : group.mediaType === 'images' ? (
               group.images.map((image, index) => (
                 <div
                   key={index}
-                  className="perspective-tile"
+                  className="perspective-tile cursor-pointer"
                   style={{
                     backgroundImage: `url(${image})`,
                     animationDelay: `${index * 0.02}s`
                   }}
+                  onClick={() => openLightbox(groupIndex, index)}
+                />
+              ))
+            ) : (
+              // Mixed media type - future implementation placeholder
+              group.images.map((image, index) => (
+                <div
+                  key={index}
+                  className="perspective-tile cursor-pointer"
+                  style={{
+                    backgroundImage: `url(${image})`,
+                    animationDelay: `${index * 0.02}s`
+                  }}
+                  onClick={() => openLightbox(groupIndex, index)}
                 />
               ))
             )}
@@ -510,6 +582,87 @@ const PerspectiveTiles: React.FC = () => {
           stunning visual experiences that captivate audiences and elevate your brand.
         </p>
       </section>
+
+      {/* Lightbox Component */}
+      {lightboxOpen && (() => {
+        const currentGroup = tileGroups[lightboxGroupIndex];
+        const isVideo = currentGroup.mediaType === 'videos';
+        const currentItem = isVideo 
+          ? currentGroup.videos[lightboxIndex] 
+          : currentGroup.images[lightboxIndex];
+        
+        return (
+          <div className="fixed inset-0 bg-black/95 backdrop-blur-sm z-[9999] flex items-center justify-center">
+            {/* Close button */}
+            <button
+              onClick={closeLightbox}
+              className="fixed top-4 right-4 z-[10000] w-12 h-12 md:w-14 md:h-14 bg-gray-800/90 hover:bg-gray-700 rounded-full flex items-center justify-center transition-all duration-300 text-white hover:scale-110 shadow-lg"
+              style={{ pointerEvents: 'auto' }}
+            >
+              <svg className="w-6 h-6 md:w-7 md:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            
+            {/* Previous button */}
+            <button
+              onClick={prevItem}
+              className="fixed left-4 top-1/2 transform -translate-y-1/2 z-[10000] w-14 h-14 md:w-16 md:h-16 bg-orange-500/90 hover:bg-orange-600 rounded-full flex items-center justify-center transition-all duration-300 text-white hover:scale-110 shadow-xl"
+              style={{ pointerEvents: 'auto' }}
+            >
+              <svg className="w-7 h-7 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            
+            {/* Next button */}
+            <button
+              onClick={nextItem}
+              className="fixed right-4 top-1/2 transform -translate-y-1/2 z-[10000] w-14 h-14 md:w-16 md:h-16 bg-orange-500/90 hover:bg-orange-600 rounded-full flex items-center justify-center transition-all duration-300 text-white hover:scale-110 shadow-xl"
+              style={{ pointerEvents: 'auto' }}
+            >
+              <svg className="w-7 h-7 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+            
+            {/* Media container */}
+            <div 
+              className="relative w-full h-full flex items-center justify-center p-16 md:p-20 cursor-pointer"
+              onClick={closeLightbox}
+            >
+              {isVideo ? (
+                <video
+                  src={currentItem}
+                  autoPlay
+                  controls
+                  className="max-w-full max-h-full object-contain rounded-lg shadow-2xl cursor-default"
+                  onClick={(e) => e.stopPropagation()}
+                />
+              ) : (
+                <img
+                  src={currentItem}
+                  alt={`${currentGroup.title} ${lightboxIndex + 1}`}
+                  className="max-w-full max-h-full object-contain rounded-lg shadow-2xl cursor-default"
+                  onClick={(e) => e.stopPropagation()}
+                />
+              )}
+            </div>
+            
+            {/* Media info */}
+            <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 text-center z-[9999]">
+              <div className="bg-black/80 backdrop-blur-sm rounded-full px-4 py-2 md:px-6 md:py-3">
+                <p className="text-white font-medium text-sm md:text-base mb-1">
+                  {currentGroup.title} {lightboxIndex + 1}
+                </p>
+                <p className="text-gray-300 text-xs md:text-sm">
+                  {isVideo ? 'Video' : 'Image'} • Group {lightboxGroupIndex + 1}
+                </p>
+              </div>
+            </div>
+          </div>
+        );
+      })()}
     </div>
   );
 };

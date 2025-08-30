@@ -27,42 +27,23 @@ const VideoModal = ({ videoUrl, onClose }) => (
 export default function VideoEditingPortfolio() {
   const [selectedVideo, setSelectedVideo] = useState(null);
 
-  // Replace these with your actual video files
+  // Video files from the video editing portfolio folder
   const videos = [
-    { id: 1, url: "/portfolio/logo/1.mp4" },
-    { id: 2, url: "/portfolio/logo/2.mp4" },
-    { id: 3, url: "/portfolio/logo/3.mp4" },
-    { id: 4, url: "/portfolio/logo/4.mp4" },
-    { id: 5, url: "/portfolio/logo/5.mp4" },
-    { id: 6, url: "/portfolio/logo/6.mp4" },
+    { id: 1, url: "/portfolio/Video Editing/7 video editing.mp4" },
+    { id: 2, url: "/portfolio/Video Editing/8 video editing.mp4" },
+    { id: 3, url: "/portfolio/Video Editing/9 video editing.mp4" },
   ];
 
-  // Grid layout configuration
+  // Grid layout configuration for 3 videos
   const gridConfig = [
-    { row: "row-span-2", col: "col-span-1" },
-    [
-      { row: "row-span-1", col: "col-span-1" },
-      { row: "row-span-1", col: "col-span-1" },
-    ],
-    { row: "row-span-2", col: "col-span-1" },
-    [
-      { row: "row-span-1", col: "col-span-1" },
-      { row: "row-span-1", col: "col-span-1" },
-    ],
+    { row: "row-span-1", col: "col-span-1" },
+    { row: "row-span-1", col: "col-span-1" },
+    { row: "row-span-1", col: "col-span-2" },
   ];
 
   const getGridConfig = (index) => {
-    let current = 0;
-    for (const item of gridConfig) {
-      if (Array.isArray(item)) {
-        if (index < current + item.length) {
-          return { ...item[index - current], index };
-        }
-        current += item.length;
-      } else {
-        if (current === index) return { ...item, index };
-        current++;
-      }
+    if (index < gridConfig.length) {
+      return { ...gridConfig[index], index };
     }
     return { row: "", col: "", index };
   };
@@ -74,7 +55,7 @@ export default function VideoEditingPortfolio() {
           Video Editing Portfolio
         </h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 h-[800px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-[800px]">
           {videos.map((video, index) => {
             const config = getGridConfig(index);
             return (

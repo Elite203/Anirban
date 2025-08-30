@@ -1,8 +1,14 @@
-// BeeScene.jsx - NO CHANGES NEEDED
+// BeeScene.jsx
 import React, { useRef } from "react";
 import { Canvas } from "@react-three/fiber";
+import * as THREE from "three";
 import BeeModel from "./BeeModel";
 import BeeController from "./BeeController";
+
+// Fix Three.js warnings
+if (typeof window !== 'undefined') {
+  THREE.ColorManagement.enabled = true;
+}
 
 export default function BeeScene() {
   const beeRef = useRef();
@@ -15,6 +21,10 @@ export default function BeeScene() {
           fov: 20,
           near: 0.1,
           far: 1000,
+        }}
+        gl={{ 
+          outputColorSpace: THREE.SRGBColorSpace,
+          toneMapping: THREE.ACESFilmicToneMapping
         }}
       >
         <ambientLight intensity={1.5} />
